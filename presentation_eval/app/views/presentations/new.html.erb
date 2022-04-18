@@ -1,0 +1,31 @@
+<h1>New Presentation</h1>
+
+<%= form_with model: @presentation do |form| %>
+  <div>
+    <%= form.label :presentation_name %><br>
+    <%= form.text_field :presentation_name %>
+    <% @presentation.errors.full_messages_for(:presentation_name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+     <%= form.label :student_name %><br>
+    <%= form.text_field :student_name %>
+        <% @presentation.errors.full_messages_for(:student_name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+    <div>
+     <%= form.label :date %><br>
+    <%= form.date_field :date %>
+        <% @presentation.errors.full_messages_for(:date).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
