@@ -1,9 +1,28 @@
-<h1>Presentations</h1>
-<%= link_to "New Presentation", new_presentation_path %>
-<ul>
+<div class="container-fluid">
+<nav class="navbar sticky-top navbar-light bg-light">
+<div class="container-fluid">
+<a class="navbar-brand">
+<h1>Presentation Evaluations</h1>
+</a>
+<%= link_to "New Presentation", new_presentation_path, class: "btn btn-primary"  %>
+</div>
+</nav>
+<div class="row row-cols-1 row-cols-md-3 g-4"> 
   <% @presentations.each do |presentation| %>
-    <li>
+   <div class="col">
+    <div class="card" style="width: 18rem;">
+    <div class="card-body">
+     <h5 class="card-title">
       <%= presentation.presentation_name %>
-    </li>
+      </h5>
+       <ul class="list-group list-group-flush">
+    <li class="list-group-item">  <%= presentation.student_name %></li>
+    <li class="list-group-item">  <%= presentation.date %></li>
+  </ul>
+  <a href="#" class="btn btn-primary">Details</a>
+       </div>
+    </div>
+    </div>
   <% end %>
-</ul>
+</div>
+</div>

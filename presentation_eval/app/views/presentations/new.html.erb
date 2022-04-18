@@ -1,31 +1,35 @@
-<h1>New Presentation</h1>
 
+<div class="container">
+<a class="navbar-brand">
+<h1 class="create-title">Create Presentation</h1>
+</a>
 <%= form_with model: @presentation do |form| %>
-  <div>
-    <%= form.label :presentation_name %><br>
-    <%= form.text_field :presentation_name %>
+  <div class="mb-3">
+    <%= form.label :presentation_name, :class=>"form-label"%><br>
+    <%= form.text_field :presentation_name, :class=>"form-control" %>
     <% @presentation.errors.full_messages_for(:presentation_name).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-  <div>
-     <%= form.label :student_name %><br>
-    <%= form.text_field :student_name %>
+  <div class="mb-3">
+     <%= form.label :student_name, :class=>"form-label" %><br>
+    <%= form.text_field :student_name, :class=>"form-control" %>
         <% @presentation.errors.full_messages_for(:student_name).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-    <div>
-     <%= form.label :date %><br>
-    <%= form.date_field :date %>
+    <div class="mb-3">
+     <%= form.label :date, :class=>"form-label" %><br>
+    <%= form.date_field :date, :class=>"form-control" %>
         <% @presentation.errors.full_messages_for(:date).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit :class=>"btn btn-primary" %>
   </div>
 <% end %>
+</div>
