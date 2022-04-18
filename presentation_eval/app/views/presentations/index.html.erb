@@ -1,2 +1,8 @@
-<h1>Presentations#index</h1>
-<p>Find me in app/views/presentations/index.html.erb</p>
+<h1>Presentations</h1>
+<ul>
+  <% @presentations.each do |presentation| %>
+    <li>
+      <%= presentation.presentation_name %>
+    </li>
+  <% end %>
+</ul>

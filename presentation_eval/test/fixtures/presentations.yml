@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  grade: MyString
+  presentation_name: MyString
+  student_name: MyString
+  date: 2022-04-17
+
+two:
+  id: 1
+  grade: MyString
+  presentation_name: MyString
+  student_name: MyString
+  date: 2022-04-17
