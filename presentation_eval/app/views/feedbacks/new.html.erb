@@ -1,0 +1,18 @@
+<div class="container">
+<a class="navbar-brand">
+<h1 class="create-title">Provide feedback below</h1>
+</a>
+
+<%= form_for @feedback do |f| %>
+    <div>
+        <%= f.label :score, :class=>"form-label" %><br />
+        <%= f.select(:score, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]]), :class=>"form-select") %>
+    </div>
+    <div>
+        <%= f.label :feedback, :class=>"form-label" %><br />
+        <%= f.text_field :feedback, :class=>"form-control" %>
+    </div>
+    <div>
+        <%= f.submit "Submit feedback", :class=>"btn btn-primary" %>
+    </div>
+<% end %>
