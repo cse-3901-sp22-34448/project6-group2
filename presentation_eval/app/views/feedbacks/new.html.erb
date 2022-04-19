@@ -2,7 +2,7 @@
 <a class="navbar-brand">
 <h1 class="create-title">Provide feedback below</h1>
 </a>
-
+<%= link_to "Back", root_path, class: "btn btn-primary"  %>
 <%= form_with model: @feedback do |f| %>
     <div class="mb-3">
         <%= f.label :score, :class=>"form-label" %><br />
@@ -12,10 +12,14 @@
     <div class="mb-3">
         <%= f.label :comments, :class=>"form-label" %><br />
         <%= f.text_field :comments, :class=>"form-control" %>
+
   
     </div>
+    <%= f.hidden_field(:presentation_id, value: @presentation_id)%>
+
     <div class="mb-3">
         <%= f.submit :class=>"btn btn-primary" %>
     </div>
 <% end %>
 </div>
+
