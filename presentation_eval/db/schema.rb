@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_17_235929) do
+ActiveRecord::Schema.define(version: 2022_04_19_201735) do
+
+  create_table "feedback", force: :cascade do |t|
+    t.integer "score"
+    t.text "feedback"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "presentation_id"
+    t.index ["presentation_id"], name: "index_feedback_on_presentation_id"
+  end
 
   create_table "presentations", force: :cascade do |t|
     t.string "grade"
@@ -21,4 +30,5 @@ ActiveRecord::Schema.define(version: 2022_04_17_235929) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "feedback", "presentations"
 end

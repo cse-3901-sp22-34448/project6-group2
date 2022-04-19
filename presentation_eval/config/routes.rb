@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get "details/student"
   root "presentations#index"
   resources :presentations
-  resources :feedbacks
+  resources :feedbacks 
 end

@@ -1,16 +1,21 @@
-class AudienceController < ApplicationController
+class FeedbacksController < ApplicationController
     def index
         @feedbacks = Feedback.all
+    end
+    def show
+        @feedback = Feedbacks.find(params[:id])
+        render "details/feedback"
     end
     def new
         @feedback = Feedback.new
     end
     def create
-        @feedback = Feedback.new(params[:feedback])
+        @feedback = Feedback.new(feedback_params)
+    
         if @feedback.save
-            redirect_to presentations_path, :notice => "Thank you"
+          redirect_to @feedback
         else
-            render "new"
+          render :new, status: :unprocessable_entity
         end
-    end
+      end
 end
