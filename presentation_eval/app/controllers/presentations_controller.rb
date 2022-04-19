@@ -4,8 +4,8 @@ class PresentationsController < ApplicationController
   end
 
   def show
-    #@presentation = Presentation.find(params[:id])
-    redirect_to action: "index"
+    @presentation = Presentation.find(params[:id])
+    render "details/index"
   end
 
   def new 

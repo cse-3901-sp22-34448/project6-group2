@@ -16,11 +16,11 @@
       <%= presentation.presentation_name %>
       </h5>
        <ul class="list-group list-group-flush">
-    <li class="list-group-item">  <%= presentation.student_name %></li>
-    <li class="list-group-item">  <%= presentation.date %></li>
-  </ul>
-  <a href="#" class="btn btn-primary">Details</a>
-       </div>
+        <li class="list-group-item">  <%= presentation.student_name %></li>
+        <li class="list-group-item">  <%= presentation.date %></li>
+      </ul>
+      <%= link_to "Details", presentation_path(presentation.id), class: "btn btn-primary"  %>
+      </div>
     </div>
     </div>
   <% end %>
