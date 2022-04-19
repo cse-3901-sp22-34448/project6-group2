@@ -18,4 +18,9 @@ class FeedbacksController < ApplicationController
           render :new, status: :unprocessable_entity
         end
       end
+
+      private
+      def feedback_params
+        params.require(:feedback).permit(:score, :comments)
+      end
 end
