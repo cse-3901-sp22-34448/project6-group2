@@ -1,0 +1,13 @@
+<div class="container-fluid">
+<nav class="navbar sticky-top navbar-light bg-light">
+<div class="container-fluid">
+<a class="navbar-brand">
+<h1>Presentation: <%= @presentation.presentation_name %></h1>
+</a>
+<%= link_to "Back", root_path, class: "btn btn-primary"  %>
+</div>
+</nav>
+<%= link_to "Instructor", "details/instructor.html", class: "btn btn-primary"  %>
+<%= link_to "Feedback", "/details/feedback.html", class: "btn btn-primary"  %>
+<%= link_to "Student", "/details/student.html", class: "btn btn-primary"  %>
+</div>
