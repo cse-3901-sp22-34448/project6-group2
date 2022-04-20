@@ -12,15 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2022_04_19_212056) do
 
-  create_table "feedback", force: :cascade do |t|
-    t.integer "score"
-    t.text "feedback"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "presentation_id"
-    t.index ["presentation_id"], name: "index_feedback_on_presentation_id"
-  end
-
   create_table "feedbacks", force: :cascade do |t|
     t.integer "score"
     t.text "comments"
@@ -39,6 +30,5 @@ ActiveRecord::Schema.define(version: 2022_04_19_212056) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "feedback", "presentations"
   add_foreign_key "feedbacks", "presentations"
 end
