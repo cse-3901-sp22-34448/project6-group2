@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <nav class="navbar sticky-top navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand">
+            <h1 class="create-title">Instructor View</h1>
+                <%= link_to "Back", root_path, class: "btn btn-primary"  %>
+            </a>
+        </div>
+    </nav>
+    <%= form_with model: @presentation do |f| %>
+        <div class="mb-3">
+            <%= f.label @presentation.presentation_name, :class=>"form-label" %>
+            's Grade
+            <%= f.select(:grade, options_for_select([['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['F', 'F']]), :class=>"form-select") %>
+        </div>
+            <div class="mb-3">
+                <%= f.submit :class=>"btn btn-primary" %>
+            </div>
+        </div>
+    <% end %>
+        <div>
+            <% @feedbacks.each do |feedback| %>
+                <% if feedback.presentation_id == @presentation.id %>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"> Score: <%= feedback.score %></li>
+                                <li class="list-group-item">  <%= feedback.comments %></li>
+                            </ul>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>
+

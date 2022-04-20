@@ -12,6 +12,16 @@ class PresentationsController < ApplicationController
     @presentation = Presentation.new
   end
 
+  def update
+    @presentation = Presentation.find(params[:id])
+
+    if @presentation.update(params[:presentation].permit(:grade))
+      redirect_to "/"
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   def create
     @presentation = Presentation.new(presentation_params)
 
