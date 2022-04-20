@@ -9,8 +9,7 @@
     </nav>
     <%= form_with model: @presentation do |f| %>
         <div class="mb-3">
-            <%= f.label @presentation.presentation_name, :class=>"form-label" %>
-            's Grade
+            <%= f.label 'Grade', :class=>"form-label" %>
             <%= f.select(:grade, options_for_select([['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D'], ['F', 'F']]), :class=>"form-select") %>
         </div>
             <div class="mb-3">
@@ -18,20 +17,30 @@
             </div>
         </div>
     <% end %>
-        <div>
-            <% @feedbacks.each do |feedback| %>
-                <% if feedback.presentation_id == @presentation.id %>
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item"> Score: <%= feedback.score %></li>
-                                <li class="list-group-item">  <%= feedback.comments %></li>
-                            </ul>
-                        </div>
-                    </div>
-                <% end %>
-            <% end %>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item"> Presentation Name: <%= @presentation.presentation_name %></li>
+            <li class="list-group-item"> Student Name: <%= @presentation.student_name %></li>
+            <li class="list-group-item"> Date: <%= @presentation.date %></li>
+            <li class="list-group-item"> Grade: <%= @presentation.grade %></li>
+            </ul>
         </div>
+    </div>
+    <div>
+    <br/>
+        <% @feedbacks.each do |feedback| %>
+            <% if feedback.presentation_id == @presentation.id %>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> Score: <%= feedback.score %></li>
+                            <li class="list-group-item"> Feedback:  <%= feedback.comments %></li>
+                        </ul>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
     </div>
 </div>
 

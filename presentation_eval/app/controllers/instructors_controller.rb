@@ -9,12 +9,13 @@ class InstructorsController < ApplicationController
   end
 
   def update
-    @presentation = Presentation.find(params[:presentation_id])
+    @presentation = Presentation.find(params[:id])
 
-    if @presentation.update(params[:presentation].permit(:grade))
-      redirect_to "/"
+    if @presentation.update_attributes(param[:form])
+      redirect_to posts_path, :notice => 'Students grades have been updated'
     else
-      render :new, status: :unprocessable_entity
+      render 'edit'
     end
-  end
+end
+  
 end

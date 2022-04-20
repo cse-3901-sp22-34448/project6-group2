@@ -15,8 +15,8 @@ class StudentsController < ApplicationController
   def update
       @presentation = Presentation.find(params[:id])
   
-      if @presentation.update_attributes(param[:form])
-        redirect_to posts_path, :notice => 'Students grades have been updated'
+      if @presentation.update(params[:presentation].permit(:presentation_name))
+        redirect_to posts_path, :notice => 'Presentation\'s name have been updated'
       else
         render 'edit'
       end

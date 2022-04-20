@@ -15,8 +15,8 @@ class PresentationsController < ApplicationController
   def update
     @presentation = Presentation.find(params[:id])
 
-    if @presentation.update(params[:presentation].permit(:grade))
-      redirect_to "/"
+    if @presentation.update(params[:presentation].permit(:grade, :presentation_name))
+      redirect_back(fallback_location: root_path)
     else
       render :new, status: :unprocessable_entity
     end
