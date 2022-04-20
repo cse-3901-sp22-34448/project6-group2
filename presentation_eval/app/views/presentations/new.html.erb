@@ -3,6 +3,7 @@
 <a class="navbar-brand">
 <h1 class="create-title">Create Presentation</h1>
 </a>
+<%= link_to "Back", root_path, class: "btn btn-primary"  %>
 <%= form_with model: @presentation do |form| %>
   <div class="mb-3">
     <%= form.label :presentation_name, :class=>"form-label"%><br>
